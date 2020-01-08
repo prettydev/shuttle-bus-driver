@@ -19,15 +19,20 @@ import {
 import { Dimensions, ScrollView, View } from 'react-native';
 import React, { ReactElement, useEffect, useState } from 'react';
 import Loader from '../shared/Loader';
+import { NavigationStackProp } from 'react-navigation-stack';
 import PrevNextButtons from '../shared/PrevNextButtons';
 import { getTripDetails } from '../../apis/firebase';
 import { phone } from '../../apis/phone';
 import { theme } from '../core/theme';
 import { useAppContext } from '../../providers/AppProvider';
 
-interface Props {
-  navigation: DefaultNavigationProps<'Home'>;
-}
+// interface Props {
+//   navigation: DefaultNavigationProps<'Home'>;
+// }
+
+type Props = {
+  navigation: NavigationStackProp<{ tripId: string }>;
+};
 
 const { width } = Dimensions.get('screen');
 

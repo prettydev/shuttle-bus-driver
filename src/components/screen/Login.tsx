@@ -4,7 +4,7 @@ import React, { ReactElement, memo, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { emailValidator, passwordValidator } from '../core/utils';
 import {
-  getRiderDetails,
+  getDriverDetails,
   loginWithEmail,
   signupWithEmail,
 } from '../../apis/firebase';
@@ -66,7 +66,7 @@ function LoginScreen(props: Props): ReactElement {
       const userCredential = await loginWithEmail(email.value, password.value);
 
       if (userCredential.user) {
-        await getRiderDetails(userCredential.user.uid, (res) => {
+        await getDriverDetails(userCredential.user.uid, (res) => {
           if (res.data()) {
             const user: User = {
               userId: res.id,
@@ -74,13 +74,12 @@ function LoginScreen(props: Props): ReactElement {
             };
             setUser(user);
 
-            const rider: Rider = {
-              riderId: res.id,
-              riderName: res.data().name,
-              riderEmail: res.data().email,
-              riderPhone: res.data().phone,
-            };
-            setRider(rider);
+            // const driver: Driver = {
+            //   driverId: res.id,
+            //   driverName: res.data().name,
+            //   driverEmail: res.data().email,
+            //   driverPhone: res.data().phone,
+            // };
 
             props.navigation.navigate('App');
           } else {
@@ -103,7 +102,7 @@ function LoginScreen(props: Props): ReactElement {
       <TouchableOpacity
         onPress={(): void => props.navigation.navigate('PhoneLogin')}
       >
-        <Text style={styles.label}>email:test@test.com, pass:123123</Text>
+        <Text style={styles.label}>email:driver@test.com, pass:123123</Text>
       </TouchableOpacity>
 
       <TextInput

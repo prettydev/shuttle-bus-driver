@@ -132,9 +132,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.creditcoder.shuttlebus"
+        applicationId "com.creditcoder.busdriver"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+
         versionCode 1
         versionName "1.0"
     }
@@ -154,9 +155,9 @@ android {
             keyPassword 'android'
         }
         // release {
-        //     storeFile file('shuttlebus.keystore')
+        //     storeFile file('busdriver.keystore')
         //     storePassword '123456'
-        //     keyAlias 'shuttlebuskey'
+        //     keyAlias 'busdriverkey'
         //     keyPassword '123456'
         // }
     }

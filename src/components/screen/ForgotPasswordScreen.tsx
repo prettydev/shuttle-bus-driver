@@ -1,13 +1,7 @@
 import { DefaultNavigationProps, Rider, User } from '../../types';
 import React, { ReactElement, memo, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import {
-  createNewRider,
-  getRiderDetails,
-  loginWithEmail,
-  passwordReset,
-  signupWithEmail,
-} from '../../apis/firebase';
+import { passwordReset } from '../../apis/firebase';
 import BackButton from '../shared/BackButton';
 import Background from '../shared/Background';
 import Button from '../shared/Button';

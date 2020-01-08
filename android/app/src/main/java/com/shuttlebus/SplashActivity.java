@@ -1,4 +1,4 @@
-package com.creditcoder.shuttlebus;
+package com.creditcoder.busdriver;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -2,6 +2,7 @@ import React, { ReactElement, useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import Modal from 'react-native-modal';
+import { NavigationStackProp } from 'react-navigation-stack';
 import PropTypes from 'prop-types';
 import StarRating from 'react-native-star-rating';
 import TextArea from '@freakycoder/react-native-text-area';
@@ -9,14 +10,17 @@ import { createTripReview } from '../../apis/firebase';
 import { theme } from '../core/theme';
 import { useAppContext } from '../../providers/AppProvider';
 
-const Page = (props): ReactElement => {
+type Props = {
+  navigation: NavigationStackProp<{ riderId: string; bookingId: string }>;
+};
+
+const Page = (props: Props): ReactElement => {
   const {
     state: { user, booking },
   } = useAppContext();
 
-  const driverId = props.navigation.getParam('driverId');
-  const tripId = props.navigation.getParam('tripId');
-  const vehicleId = props.navigation.getParam('vehicleId');
+  const driverId = props.navigation.getParam('riderId');
+  const tripId = props.navigation.getParam('bookingId');
 
   const [star, setStar] = useState(0);
   const [review, setReview] = useState('');

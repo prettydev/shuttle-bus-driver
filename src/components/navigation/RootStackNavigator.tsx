@@ -4,7 +4,9 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import AuthCheck from '../screen/AuthCheck';
 import BookingList from '../screen/BookingList';
 import ChatScreen from '../screen/ChatScreen';
+import CheckScreen from '../screen/CheckScreen';
 import Confirm from '../screen/Confirm';
+import DashboardScreen from '../screen/DashboardScreen';
 import DropoffMap from '../screen/DropoffMap';
 import ForgotPassword from '../screen/ForgotPasswordScreen';
 import HelpScreen from '../screen/HelpScreen';
@@ -15,6 +17,7 @@ import PaymentScreen from '../screen/PaymentScreen';
 import PhoneLogin from '../screen/PhoneLogin';
 import PickupMap from '../screen/PickupMap';
 import Preview from '../screen/Preview';
+import ProfileScreen from '../screen/ProfileScreen';
 import Register from '../screen/RegisterScreen';
 import ReviewScreen from '../screen/ReviewScreen';
 import SelectTable from '../screen/SelectTable';
@@ -33,58 +36,16 @@ const AuthStack = createStackNavigator({
 });
 
 const BookingStack = createStackNavigator({
-  TripList: {
-    screen: TripList,
+  BookingList: {
+    screen: BookingList,
     navigationOptions: ({ navigation }) => ({
-      title: 'Trip list',
-    }),
-  },
-  TripDetails: {
-    screen: TripDetails,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Trip details', // `${navigation.state.params.name}'s Details'`,
-    }),
-  },
-  PickupMap: {
-    screen: PickupMap,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Select pickup place',
-    }),
-  },
-  DropoffMap: {
-    screen: DropoffMap,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Select dropoff place',
-    }),
-  },
-  SelectTable: {
-    screen: SelectTable,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Select a seat',
-    }),
-  },
-  Preview: {
-    screen: Preview,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Confirm your booking',
-    }),
-  },
-  Confirm: {
-    screen: Confirm,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Finish',
+      title: 'Booking list',
     }),
   },
   ChatScreen: {
     screen: ChatScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Chat with driver',
-    }),
-  },
-  TrackingScreen: {
-    screen: TrackingScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Tracking a bus',
+      title: 'Chat with rider',
     }),
   },
 });
@@ -93,7 +54,7 @@ const HomeStack = createStackNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
-      title: 'Current Booking',
+      title: 'Current trip',
     }),
   },
   Payment: {
@@ -102,10 +63,46 @@ const HomeStack = createStackNavigator({
       title: 'Payment',
     }),
   },
+  CheckList: {
+    screen: CheckScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Check riders',
+    }),
+  },
   Review: {
     screen: ReviewScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Give driver reviews and ratings',
+      title: 'Give rider reviews and ratings',
+    }),
+  },
+});
+
+const DashboardStack = createStackNavigator({
+  Dashboard: {
+    screen: DashboardScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Dashboard',
+    }),
+  },
+  Profile: {
+    screen: ProfileScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'My profile',
+    }),
+  },
+});
+
+const HistoryStack = createStackNavigator({
+  TripList: {
+    screen: TripList,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Trips history',
+    }),
+  },
+  TripDetails: {
+    screen: TripDetails,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Trip details',
     }),
   },
 });
@@ -116,38 +113,38 @@ const AppStack = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Home',
       tabBarIcon: (
+        <IconButton icon="road-variant" color={theme.colors.icon} size={20} />
+      ),
+    },
+  },
+  Bookings: {
+    screen: BookingStack,
+    navigationOptions: {
+      tabBarLabel: 'Bookings',
+      tabBarIcon: (
         <IconButton icon="ticket" color={theme.colors.icon} size={20} />
       ),
     },
   },
-  Booking: {
-    screen: BookingStack,
+  Dashboard: {
+    screen: DashboardStack,
     navigationOptions: {
-      tabBarLabel: 'Booking',
+      tabBarLabel: 'dashboard',
       tabBarIcon: (
-        <IconButton icon="bus-clock" color={theme.colors.icon} size={20} />
+        <IconButton
+          icon="view-dashboard-outline"
+          color={theme.colors.icon}
+          size={20}
+        />
       ),
     },
   },
   History: {
-    screen: BookingList,
+    screen: HistoryStack,
     navigationOptions: {
-      tabBarLabel: 'My rides',
+      tabBarLabel: 'history',
       tabBarIcon: (
         <IconButton icon="history" color={theme.colors.icon} size={20} />
-      ),
-    },
-  },
-  Help: {
-    screen: HelpScreen,
-    navigationOptions: {
-      tabBarLabel: 'Help',
-      tabBarIcon: (
-        <IconButton
-          icon="account-question-outline"
-          color={theme.colors.icon}
-          size={20}
-        />
       ),
     },
   },

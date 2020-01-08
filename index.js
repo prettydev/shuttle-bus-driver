@@ -10,4 +10,4 @@ YellowBox.ignoreWarnings([
   'Module RCTImageLoader',
 ]);
 
-AppRegistry.registerComponent('shuttlebus', () => App);
+AppRegistry.registerComponent('busdriver', () => App);

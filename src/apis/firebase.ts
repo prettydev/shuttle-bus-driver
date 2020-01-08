@@ -96,7 +96,10 @@ export const createNewDriver = (doc): Promise<void | Response> => {
 export const getDrivers = (callback): any => {
   return drivers.onSnapshot(callback);
 };
-export const getDriverDetails = (key, callback): Promise<void | Response> => {
+export const getDriverDetails = (
+  key: string,
+  callback: callbackFn,
+): Promise<void | Response> => {
   return drivers
     .doc(key)
     .get()

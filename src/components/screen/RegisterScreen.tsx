@@ -10,8 +10,8 @@ import {
   phoneValidator,
 } from '../core/utils';
 import {
-  createNewRider,
-  getRiderDetails,
+  createNewDriver,
+  getDriverDetails,
   loginWithEmail,
   signupWithEmail,
 } from '../../apis/firebase';
@@ -84,7 +84,7 @@ const RegisterScreen = ({ navigation }: Props): ReactElement => {
           phone: phone.value,
           id: response.user.uid,
         };
-        await createNewRider(userData);
+        await createNewDriver(userData);
         navigation.navigate('Login');
       }
     } catch (error) {

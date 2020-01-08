@@ -14,13 +14,19 @@ import { Dimensions, ScrollView, View } from 'react-native';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { getCurrentBookings, getUpcomingBookings } from '../../apis/firebase';
 import Loader from '../shared/Loader';
+import { NavigationStackProp } from 'react-navigation-stack';
+
 import { phone } from '../../apis/phone';
 import { theme } from '../core/theme';
 import { useAppContext } from '../../providers/AppProvider';
 
-interface Props {
-  navigation: DefaultNavigationProps<'Home'>;
-}
+// interface Props {
+//   navigation: DefaultNavigationProps<'Home'>;
+// }
+
+type Props = {
+  navigation: NavigationStackProp<{}>;
+};
 
 const { width } = Dimensions.get('screen');
 interface BookingItem {

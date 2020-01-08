@@ -8,6 +8,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:714080369658:android:09a799b2723d2b3d4a4243",
+        "android_client_info": {
+          "package_name": "com.creditcoder.busdriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714080369658-rai96160i6k449792o9i2v8ctjmjakpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFVfLE5EjMAkPiXxshhWCl2dc2CP2k-pU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714080369658-rai96160i6k449792o9i2v8ctjmjakpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:714080369658:android:756e8621a9f079664a4243",
         "android_client_info": {
           "package_name": "com.creditcoder.shuttlebus"

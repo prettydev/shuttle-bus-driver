@@ -1,13 +1,18 @@
 import { Card, Text } from 'react-native-paper';
 import { DefaultNavigationProps, User } from '../../types';
 import React, { ReactElement, useEffect, useState } from 'react';
+import { NavigationStackProp } from 'react-navigation-stack';
 import { View } from 'react-native';
 import { requestOneTimePayment } from 'react-native-paypal';
 import { useAppContext } from '../../providers/AppProvider';
 
-interface Props {
-  navigation: DefaultNavigationProps<'Home'>;
-}
+// interface Props {
+//   navigation: DefaultNavigationProps<'Home'>;
+// }
+
+type Props = {
+  navigation: NavigationStackProp<{ userId: string }>;
+};
 
 function Page(props: Props): ReactElement {
   const {

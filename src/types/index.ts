@@ -40,6 +40,7 @@ export interface Driver {
   driverId: string;
   driverName: string;
   driverPhone: string;
+  driverEmail: string;
 }
 
 export interface Pickup {
