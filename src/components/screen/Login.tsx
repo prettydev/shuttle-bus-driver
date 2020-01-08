@@ -98,7 +98,7 @@ function LoginScreen(props: Props): ReactElement {
     <Background>
       <Logo />
 
-      <Header>Shuttle Bus Passenger</Header>
+      <Header>Shuttle Bus Driver</Header>
 
       <TouchableOpacity
         onPress={(): void => props.navigation.navigate('PhoneLogin')}
