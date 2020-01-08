@@ -91,7 +91,8 @@ export const getRiderDetails = (
 export const createNewDriver = (doc): Promise<void | Response> => {
   doc.createdAt = firebase.firestore.FieldValue.serverTimestamp();
   doc.updatedAt = firebase.firestore.FieldValue.serverTimestamp();
-  return drivers.doc(doc.uid).set(doc);
+  return drivers.doc(doc.id).set(doc);
+  // return drivers.doc(`${doc.id}`).set(doc);
 };
 export const getDrivers = (callback): any => {
   return drivers.onSnapshot(callback);
